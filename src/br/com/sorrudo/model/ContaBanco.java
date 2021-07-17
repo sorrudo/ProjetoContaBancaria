@@ -1,7 +1,7 @@
 package br.com.sorrudo.model;
 
 public class ContaBanco {
-    public int numConta;
+
     protected String tipoConta;
     private boolean status;
     private double saldo;
@@ -45,10 +45,6 @@ public class ContaBanco {
     }
 
 
-    public void setNumConta(int numConta) {
-        this.numConta = numConta;
-    }
-
     public void setTipoConta(String tp) {
         this.tipoConta = tp;
         if (tp.equalsIgnoreCase("cp")) {
@@ -69,9 +65,6 @@ public class ContaBanco {
         return saldo;
     }
 
-    public int getNumConta() {
-        return numConta;
-    }
 
     public String getTipoConta() {
         return tipoConta;
