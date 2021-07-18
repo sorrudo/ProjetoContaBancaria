@@ -1,6 +1,8 @@
 package br.com.sorrudo.model;
 
-public class ContaBanco {
+import br.com.sorrudo.controler.Controler;
+
+public  class ContaBanco implements Controler{
 
     protected String tipoConta;
     private boolean status;
@@ -10,40 +12,6 @@ public class ContaBanco {
         status = false;
         saldo = 0;
     }
-
-    public boolean abrirConta() {
-        return status = true;
-    }
-
-    public String fecharConta() {
-        if (saldo != 0) {
-            return "Para fechar a sua conta você precisa sacar todo o seu dinheiro da conta";
-        } else {
-            status = false;
-            return "A sua conta foi fechada com sucesso";
-        }
-
-    }
-
-    public double depositar(double x) {
-        return saldo += x;
-    }
-
-    public void sacar(double x) {
-        if (saldo != 0 && saldo >= x) {
-            saldo -= x;
-        }
-
-    }
-
-    public void pagarMensal() {
-        if (tipoConta.equalsIgnoreCase("cp") && saldo != 0){
-            saldo -= 20;
-        }else {
-            saldo -= 12;
-        }
-    }
-
 
     public void setTipoConta(String tp) {
         this.tipoConta = tp;
@@ -68,6 +36,52 @@ public class ContaBanco {
 
     public String getTipoConta() {
         return tipoConta;
+    }
+
+    @Override
+    public boolean  abrirConta() {
+        return status = true;
+    }
+
+    @Override
+    public String fecharConta() {
+        if (saldo != 0) {
+            return "Para fechar a sua conta você precisa sacar todo o seu dinheiro da conta";
+        } else {
+            status = false;
+            return "A sua conta foi fechada com sucesso";
+        }
+    }
+
+    @Override
+    public double depositar() {
+        return 0;
+    }
+
+    @Override
+    public void sacar() {
+
+    }
+
+    @Override
+    public double depositar(double x) {
+        return saldo += x;
+    }
+
+    @Override
+    public void sacar(double x) {
+        if (saldo != 0 && saldo >= x) {
+            saldo -= x;
+        }
+    }
+
+    @Override
+    public void pagarMensal() {
+        if (tipoConta.equalsIgnoreCase("cp") && saldo != 0){
+            saldo -= 20;
+        }else {
+            saldo -= 12;
+        }
     }
 }
 
